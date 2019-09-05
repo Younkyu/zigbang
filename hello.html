@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+  function setup() {
+    // Write your code here.
+    const cardArr = document.getElementsByClassName('card')
+    for (let i = 0; i < cardArr.length; i++) {
+      const card = cardArr[i]
+      card.addEventListener('click', function(e) {
+        if(e.target.innerHTML === 'down') {
+          for (let j = 0; j < cardArr.length; j++) {
+            cardArr[j].innerHTML = 'down'
+          }
+          e.target.innerHTML = 'up'
+        }
+      })
+    }
+  }
+
+  // Example case.
+  document.body.innerHTML = `
+<table id="card-container">
+  <tbody>
+    <tr>
+      <td class="card">down</td>
+      <td class="card">up</td>
+    </tr>
+    <tr>
+      <td class="card">down</td>
+      <td class="card">down</td>
+    </tr>
+  </tbody>
+</table>`;
+
+  setup();
+
+  document.getElementsByClassName("card")[0].click();
+  console.log(document.body.innerHTML);
+</script>
+</html>
